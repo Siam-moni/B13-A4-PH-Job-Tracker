@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JobTracker Dashboard</title>
+    <title>Job Application Tracker</title>
     <!-- Tailwind+DesyUI -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -25,8 +25,25 @@
     </style>
   </head>
   <body class="bg-gray-100">
-    <section>
-      <h1>Job Application Tracker</h1>
+    <section class="p-6 bg-gray text-neutral-content">
+      <h1 class="text-3xl font-bold text-black">Job Application Tracker</h1>
+
+      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
+        <div class="p-3 bg-base-100 rounded-box">
+          <h2 class="text-black">Total Jobs</h2>
+          <p class="text-black text-3xl font-bold" id="totalCount">0</p>
+        </div>
+
+        <div class="p-3 bg-base-100 rounded-box">
+          <h2 class="text-black">Interview</h2>
+          <p class="text-green-500 text-3xl font-bold" id="totalCount">0</p>
+        </div>
+
+        <div class="p-3 bg-base-100 rounded-box">
+          <h2 class="text-black">Rejected</h2>
+          <p class="text-red-500 text-3xl font-bold" id="totalCount">0</p>
+        </div>
+      </div>
     </section>
   </body>
 </html>
