@@ -25,6 +25,7 @@
     </style>
   </head>
   <body class="bg-gray-100">
+    <!-- job track dashboard section -->
     <section class="p-6 bg-gray text-neutral-content">
       <h1 class="text-3xl font-bold text-black">Job Application Tracker</h1>
 
@@ -44,6 +45,32 @@
           <p class="text-red-500 text-3xl font-bold" id="totalCount">0</p>
         </div>
       </div>
+    </section>
+    <!-- job track dashboard section -->
+    <section class="p-6">
+      <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-semibold">Available Jobs</h2>
+        <span class="text-neutral/50" id="tabCount">0 Jobs</span>
+      </div>
+
+      <!-- Tabs -->
+      <div class="mt-4">
+        <button class="btn mr-4 btn-primary btn-soft" data-tab="all">
+          All
+        </button>
+        <button class="btn mr-4 btn-primary btn-soft" data-tab="interview">
+          Interview
+        </button>
+        <button class="btn mr-4 btn-primary btn-soft" data-tab="rejected">
+          Rejected
+        </button>
+      </div>
+
+      <!-- Cards -->
+      <div
+        id="jobsContainer"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+      ></div>
     </section>
   </body>
 </html>
