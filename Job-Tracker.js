@@ -94,3 +94,19 @@ const interviewCount = document.getElementById("interviewCount");
 const rejectedCount = document.getElementById("rejectedCount");
 const jobCountLabel = document.getElementById("jobCount");
 const activeStatusLabel = document.getElementById("activeStatus");
+
+// for count
+
+function updateCounts() {
+  const all = jobs.length;
+  const interview = jobs.filter((j) => j.status === "interview").length;
+  const rejected = jobs.filter((j) => j.status === "rejected").length;
+
+  totalCount.innerText = all;
+  interviewCount.innerText = interview;
+  rejectedCount.innerText = rejected;
+
+  if (currentJob === "all") jobCountLabel.innerText = all;
+  else if (currentJob === "interview") jobCountLabel.innerText = interview;
+  else if (currentJob === "rejected") jobCountLabel.innerText = rejected;
+}
