@@ -26,6 +26,7 @@
   </head>
   <body class="bg-gray-100">
     <!-- job track dashboard section -->
+
     <section class="p-6 bg-gray text-neutral-content">
       <h1 class="text-3xl font-bold text-black">Job Application Tracker</h1>
 
@@ -47,13 +48,15 @@
       </div>
     </section>
     <!-- job track dashboard section -->
+
     <section class="p-6">
       <div class="flex justify-between items-center">
         <h2 class="text-2xl font-semibold">Available Jobs</h2>
-        <span class="text-neutral/50" id="jobCount">0</span>
+        <p class="text-neutral/50" id="jobCount">0</p>
       </div>
 
       <!-- Tabs -->
+
       <div class="mt-4">
         <button class="btn mr-4 btn-primary btn-soft px-10" data-tab="all">
           All
@@ -65,32 +68,22 @@
           Rejected
         </button>
       </div>
-      <!-- Active Status Bar -->
-      <div class="mb-4">
-        <span
-          id="activeStatus"
-          class="px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 text-gray-700"
-        >
-          ALL
-        </span>
-      </div>
-      <!-- Cards -->
-      <div
-        id="jobsContainer"
-        class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
-      ></div>
     </section>
     <section class="p-6">
       <!-- Cards Container -->
-      <div id="jobContainer" class="grid md:grid-cols-2 gap-4"></div>
+      <div id="jobContainer" class="gap-4"></div>
 
       <!-- No Jobs Message -->
       <div id="noJobMessage" class="hidden text-center py-12">
         <div class="flex flex-col items-center gap-4">
           <img src="./jobs.png" alt="" />
           <h3 class="text-xl font-semibold">No Jobs Available</h3>
-          <p class="text-gray-500">Currently no jobs in this category.</p>
+          <p class="text-gray-500">Check back soon for new job opportunities</p>
         </div>
+      </div>
+      <!-- Active Status Bar -->
+      <div class="mb-4">
+        <p id="activeStatus"></p>
       </div>
     </section>
     <script src="./Job-Tracker.js"></script>

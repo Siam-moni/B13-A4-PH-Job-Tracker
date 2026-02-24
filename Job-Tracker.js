@@ -1,3 +1,5 @@
+// job list
+
 const jobs = [
   {
     id: 1,
@@ -6,8 +8,7 @@ const jobs = [
     location: "Los Angeles",
     type: "Full Time",
     salary: "$130,000-$175,000",
-    description:
-      "Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.",
+    description: "Build cross-platform mobile applications using React Native.",
     status: "none",
   },
   {
@@ -17,8 +18,7 @@ const jobs = [
     location: "Los Angeles, CA",
     type: "Part-time",
     salary: "$80,000 - $120,000",
-    description:
-      "Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.",
+    description: "Create stunning web experiences.",
     status: "none",
   },
   {
@@ -28,8 +28,7 @@ const jobs = [
     location: "Boston, MA",
     type: "Full-time",
     salary: "$125,000 - $165,000",
-    description:
-      "Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.",
+    description: "Transform complex data into visualizations.",
     status: "none",
   },
   {
@@ -39,8 +38,7 @@ const jobs = [
     location: "Seattle, WA",
     type: "Full Time",
     salary: "$140,000 - $190,000",
-    description:
-      "Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.",
+    description: "Design scalable backend systems.",
     status: "none",
   },
   {
@@ -50,8 +48,7 @@ const jobs = [
     location: "Austin, TX ",
     type: "Full-time",
     salary: "$110,000 - $150,000",
-    description:
-      "Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.",
+    description: "Create functional user interfaces.",
     status: "none",
   },
   {
@@ -61,8 +58,7 @@ const jobs = [
     location: "New York, NY",
     type: "Full-time",
     salary: "$130,000 - $170,00",
-    description:
-      "Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.",
+    description: "Build enterprise applications.",
     status: "none",
   },
   {
@@ -72,8 +68,7 @@ const jobs = [
     location: "San Francisco, CA",
     type: "Full Time",
     salary: "$120,000 - $160,000",
-    description:
-      "Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.",
+    description: "Join our fast-growing startup.",
     status: "none",
   },
   {
@@ -83,23 +78,7 @@ const jobs = [
     location: "San Francisco, CA",
     type: "Full Time",
     salary: "$130,000 - $175,000",
-    description:
-      "We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.",
+    description: "Build web applications using React.",
     status: "none",
   },
 ];
-let currentJob = "all";
-//  Count
-function updateCounts() {
-  const all = jobs.length;
-  const interview = jobs.filter((j) => j.status === "interview").length;
-  const rejected = jobs.filter((j) => j.status === "rejected").length;
-
-  totalCount.innerText = all;
-  interviewCount.innerText = interview;
-  rejectedCount.innerText = rejected;
-
-  if (currentJob === "all") jobCount.innerText = all;
-  if (currentJob === "interview") jobCount.innerText = interview;
-  if (currentJob === "rejected") jobCount.innerText = rejected;
-}
