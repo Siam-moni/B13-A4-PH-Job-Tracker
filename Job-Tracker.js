@@ -82,3 +82,15 @@ const jobs = [
     status: "none",
   },
 ];
+
+let currentJob = "all";
+
+// Element Select
+
+const jobContainer = document.getElementById("jobContainer");
+const noJobMessage = document.getElementById("noJobMessage");
+const totalCount = document.getElementById("totalCount");
+const interviewCount = document.getElementById("interviewCount");
+const rejectedCount = document.getElementById("rejectedCount");
+const jobCountLabel = document.getElementById("jobCount");
+const activeStatusLabel = document.getElementById("activeStatus");
