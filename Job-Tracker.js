@@ -111,32 +111,65 @@ function updateCounts() {
   else if (currentJob === "rejected") jobCountLabel.innerText = rejected;
 }
 
- // make a Job function
+// make a Job function
 
-  function renderJobs() {
-    jobContainer.innerHTML = "";
-    let filtered = jobs;
-    if (currentJob !== "all") {
-      filtered = jobs.filter((j) => j.status === currentJob);
+function renderJobs() {
+  jobContainer.innerHTML = "";
+  let filtered = jobs;
+  if (currentJob !== "all") {
+    filtered = jobs.filter((j) => j.status === currentJob);
+  }
+  if (filtered.length === 0) {
+    noJobMessage.classList.remove("hidden");
+  } else {
+    noJobMessage.classList.add("hidden");
+  }
+  filtered.forEach((job) => {
+    const card = document.createElement("div");
+    card.className =
+      "card w-full bg-white shadow-md border border-gray-100 relative mb-6";
+
+    //make  status text & color
+    let statusText = "ALL";
+    let statusColor = "bg-gray-200 text-gray-700";
+
+    if (job.status === "interview") {
+      statusText = "INTERVIEW";
+      statusColor = "bg-green-100 text-green-700";
+    } else if (job.status === "rejected") {
+      statusText = "REJECTED";
+      statusColor = "bg-red-100 text-red-700";
     }
-    if (filtered.length === 0) {
-      noJobMessage.classList.remove("hidden");
-    } else {
-      noJobMessage.classList.add("hidden");
-    }
-    filtered.forEach((job) => {
-      const card = document.createElement("div");
-      card.className =
-        "card w-full bg-white shadow-md border border-gray-100 relative mb-6";
+    // Make a new card by JS
 
-      //make  status text & color
-      let statusText = "ALL";
-      let statusColor = "bg-gray-200 text-gray-700";
+    card.innerHTML = `
+      <button
+        onclick="deleteJob(${job.id})"
+        class="absolute top-2 right-2 w-8 bg-red-600">
+        <img src="./Delete.png" alt=""/>
+     </button>
 
-      if (job.status === "interview") {
-        statusText = "INTERVIEW";
-        statusColor = "bg-green-100 text-green-700";
-      } else if (job.status === "rejected") {
-        statusText = "REJECTED";
-        statusColor = "bg-red-100 text-red-700";
-      }
+      <div class="card-body p-6">
+        <h2 class="font-bold text-2xl lg:text-3xl text-gray-800">${job.position}</h2>
+        <p class="font-semibold text-neutral/60 text-xl">${job.company}</p>
+        <p>${job.location} - ${job.type}</p>
+        <p>${job.salary}</p>
+        <p>${job.description}</p>
+        <div>
+            <span class="btn mr-4 w-30 btn-primary btn-soft text-xl font-bold uppercase ${statusColor}">
+                ${statusText}
+            </span>
+        </div>
+        <div class=" flex gap-3 mt-4 pt-4 border-t border-gray-50">
+          <button class="btn w-30 mr-4 btn-primary btn-soft text-xl font-bold" onclick="toggleStatus(${job.id}, 'interview')">
+            Interview
+          </button>
+          <button class="btn w-30 mr-4 btn-primary btn-soft text-xl font-bold" onclick="toggleStatus(${job.id}, 'rejected')">
+            Reject
+          </button>
+        </div>
+      </div> `;
+    jobContainer.appendChild(card);
+  });
+  updateCounts();
+}
