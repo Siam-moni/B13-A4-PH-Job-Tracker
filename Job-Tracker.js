@@ -173,3 +173,33 @@ function renderJobs() {
   });
   updateCounts();
 }
+// toggle Status make
+
+function toggleStatus(id, status) {
+  const job = jobs.find((j) => j.id === id);
+  if (job) {
+    job.status = job.status === status ? "none" : status;
+    renderJobs();
+  }
+}
+
+// delete btn function
+
+function deleteJob(id) {
+  const index = jobs.findIndex((j) => j.id === id);
+  if (index !== -1) {
+    jobs.splice(index, 1);
+    renderJobs();
+  }
+}
+
+// tab click add
+
+document.querySelectorAll("[data-tab]").forEach((tab) => {
+  tab.addEventListener("click", function () {
+    currentJob = this.dataset.tab; // currentTab এর বদলে currentJob
+    activeStatusLabel.innerText = currentJob.toUpperCase();
+    renderJobs();
+  });
+});
+renderJobs();
