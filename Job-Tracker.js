@@ -110,3 +110,33 @@ function updateCounts() {
   else if (currentJob === "interview") jobCountLabel.innerText = interview;
   else if (currentJob === "rejected") jobCountLabel.innerText = rejected;
 }
+
+ // make a Job function
+
+  function renderJobs() {
+    jobContainer.innerHTML = "";
+    let filtered = jobs;
+    if (currentJob !== "all") {
+      filtered = jobs.filter((j) => j.status === currentJob);
+    }
+    if (filtered.length === 0) {
+      noJobMessage.classList.remove("hidden");
+    } else {
+      noJobMessage.classList.add("hidden");
+    }
+    filtered.forEach((job) => {
+      const card = document.createElement("div");
+      card.className =
+        "card w-full bg-white shadow-md border border-gray-100 relative mb-6";
+
+      //make  status text & color
+      let statusText = "ALL";
+      let statusColor = "bg-gray-200 text-gray-700";
+
+      if (job.status === "interview") {
+        statusText = "INTERVIEW";
+        statusColor = "bg-green-100 text-green-700";
+      } else if (job.status === "rejected") {
+        statusText = "REJECTED";
+        statusColor = "bg-red-100 text-red-700";
+      }
